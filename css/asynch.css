@@ -1,0 +1,64 @@
+#cartPanel {
+    display: none;
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    z-index: 1000;
+    border: 1px solid #ddd;
+    width: 350px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #E91E63;
+    margin: 15px 0;
+}
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #666;
+}
+
+.tab-btn.active {
+    color: #1976D2;
+    border-bottom: 3px solid #1976D2;
+}
+
+.error-msg {
+    color: #f44336;
+    font-size: 13px;
+    margin: 0;
+    min-height: 15px;
+    font-weight: bold;
+}

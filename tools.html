@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інструменти - MathPortal</title>
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/tools.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">📐 MathPortal</div>
+        <div class="nav-controls">
+            <a href="index.html" class="nav-link">Головна</a>
+            <a href="tools.html" class="nav-link">Інструменти</a>
+            <a href="asynch.html" class="nav-link">Магазин PRO</a>
+            <button id="authBtn">🔑 Увійти</button>
+        </div>
+    </nav>
+
+    <main class="container" style="display: flex; flex-direction: column; align-items: center; gap: 30px;">
+        
+        <section class="task-block">
+            <h2>Завдання 1: Чи існує трикутник?</h2>
+            <p class="condition"><strong>Умова:</strong> За трьома довжинами відрізків з’ясувати чи можна побудувати трикутник.</p>
+            <div class="input-group">
+                <input type="number" id="sideA" placeholder="Сторона a">
+                <input type="number" id="sideB" placeholder="Сторона b">
+                <input type="number" id="sideC" placeholder="Сторона c">
+                <button id="btnTask1">Перевірити</button>
+            </div>
+            <div id="resTask1" class="result"></div>
+        </section>
+
+        <section class="task-block">
+            <h2>Завдання 2: Просте число</h2>
+            <p class="condition"><strong>Умова:</strong> Перевірити, чи є введене число простим.</p>
+            <div class="input-group">
+                <input type="number" id="numPrime" placeholder="Введіть число">
+                <button id="btnTask2">Перевірити</button>
+            </div>
+            <div id="resTask2" class="result"></div>
+        </section>
+
+        <section class="task-block">
+            <h2>Завдання 3: Парне чи непарне?</h2>
+            <p class="condition"><strong>Умова:</strong> Перевірити, чи є введене число парним.</p>
+            <div class="input-group">
+                <input type="number" id="numEven" placeholder="Введіть число">
+                <button id="btnTask3">Перевірити</button>
+            </div>
+            <div id="resTask3" class="result"></div>
+        </section>
+
+    </main>
+
+    <script src="js/script_tools.js"></script>
+</body>
+</html>

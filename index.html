@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathPortal - Головна</title>
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">📐 MathPortal</div>
+        <div class="nav-controls">
+            <a href="index.html" class="nav-link" style="color: yellow;">Головна</a>
+            <a href="tools.html" class="nav-link">Інструменти</a>
+            <a href="asynch.html" class="nav-link">Магазин PRO</a>
+            <input type="text" id="searchInput" placeholder="Пошук курсів...">
+            <button id="cartBtn">🛒 Кошик (<span id="cartCount">0</span>)</button>
+            <button id="authBtn">🔑 Log-in</button>
+        </div>
+    </nav>
+
+    <div id="cartPanel" class="hidden-panel" style="width: 350px; right: 20px; position: fixed; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: none; z-index: 1000;">
+        <h3 style="margin-top: 0;">Ваш кошик</h3>
+        <div id="cartContent">
+            <p>Кошик поки що порожній.</p>
+        </div>
+    </div>
+
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeAuth">&times;</span>
+            <h2>Авторизація</h2>
+            <input type="text" placeholder="Логін">
+            <input type="password" placeholder="Пароль">
+            <button class="btn">Увійти</button>
+        </div>
+    </div>
+
+    <main class="container">
+        
+        <section class="hero-carousel">
+            <div id="carouselText" class="carousel-content">
+                <h2>Знижка 50% на курс підготовки до НМТ!</h2>
+            </div>
+        </section>
+
+        <section class="news-section">
+            <h2>Новини порталу</h2>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <aside style="flex: 1; background: #fff; padding: 15px; border-radius: 8px; min-width: 250px;">
+                    <h3>Останні новини</h3>
+                    <div id="newsSidebar"></div>
+                    <button id="loadMoreNewsBtn" class="btn" style="margin-top: 10px; width: 100%;">Більше новин</button>
+                </aside>
+                <article style="flex: 2; background: #fff; padding: 15px; border-radius: 8px; min-width: 300px;">
+                    <div id="newsMainContent">
+                        <h3 style="color: #666;">👈 Оберіть новину зі списку</h3>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <h2>Наші матеріали та курси</h2>
+            <div class="control-panel">
+                <select id="filterCategory">
+                    <option value="all">Усі категорії</option>
+                    <option value="course">Курси</option>
+                    <option value="book">Підручники</option>
+                </select>
+
+                <select id="sortType">
+                    <option value="default">За замовчуванням</option>
+                    <option value="nameAsc">За назвою (А-Я)</option>
+                    <option value="priceAsc">Від дешевих до дорогих</option>
+                    <option value="priceDesc">Від дорогих до дешевих</option>
+                </select>
+                
+                <input type="number" id="maxPrice" placeholder="Макс. ціна (грн)" style="width: 120px;">
+            </div>
+
+            <div id="productsContainer" class="cards-grid"></div>
+        </section>
+
+        <section id="statsSection" style="margin-top: 40px; background: #fff; padding: 20px; border-radius: 8px;">
+            <h2>Популярність пропозицій (Статистика)</h2>
+            <div style="margin-bottom: 20px; text-align: center;">
+                <button class="btn" onclick="buildChart('bar')">Гістограма</button>
+                <button class="btn" onclick="buildChart('pie')">Кругова діаграма</button>
+                <button class="btn" onclick="buildChart('line')">Графік</button>
+            </div>
+            <div style="max-width: 600px; margin: 0 auto;">
+                <canvas id="myChart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <div id="adModal" class="modal">
+        <div class="modal-content text-center">
+            <h2>Індивідуальні заняття!</h2>
+            <p>Запишись на перше безкоштовне заняття з репетитором.</p>
+            <button id="closeAdBtn" disabled>Закрити (зачекайте <span id="adTimer">5</span> с)</button>
+        </div>
+    </div>
+
+    <div id="subscribePop" class="bottom-popup">
+        <p>Підпишіться на розсилку нових формул та лайфхаків!</p>
+        <button id="subAccept" class="btn">Підписатись</button>
+        <button id="subDecline" class="btn btn-red">Ні, дякую</button>
+    </div>
+
+    <button id="scrollTopBtn" title="Вгору">⬆</button>
+
+    <script src="js/script_main.js"></script>
+</body>
+</html>

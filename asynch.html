@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathPortal - PRO (Лаба 4)</title>
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/asynch.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">📐 MathPortal</div>
+        <div class="nav-controls">
+            <a href="index.html" class="nav-link">Головна (Лаб 2,3)</a>
+            <a href="tools.html" class="nav-link">Інструменти (Лаб 1)</a>
+            <a href="lab4.html" class="nav-link" style="color: yellow;">Магазин PRO (Лаб 4)</a>
+            
+            <button id="cartBtn" class="btn">🛒 Кошик (<span id="cartCount">0</span>)</button>
+            <span id="userInfo" style="color: white; font-weight: bold; margin-left: 10px;"></span>
+            <button id="authBtn" class="btn" style="background: #ff9800;">🔑 Увійти</button>
+        </div>
+    </nav>
+
+    <div id="cartPanel" class="hidden-panel">
+        <h3 style="margin-top: 0;">Ваш кошик</h3>
+        <div id="cartContent"><p>Кошик порожній.</p></div>
+    </div>
+
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeAuth">&times;</span>
+            
+            <div class="auth-tabs">
+                <button id="tabLogin" class="tab-btn active">Вхід</button>
+                <button id="tabReg" class="tab-btn">Реєстрація</button>
+            </div>
+
+            <form id="loginForm">
+                <input type="text" id="logUser" placeholder="Логін" required>
+                <input type="password" id="logPass" placeholder="Пароль" required>
+                <p id="logError" class="error-msg"></p>
+                <button type="button" class="btn" style="width: 100%;" onclick="login()">Увійти</button>
+            </form>
+
+            <form id="regForm" style="display: none;">
+                <p style="font-size: 12px; color: gray; margin: 0;">Поля з * обов'язкові</p>
+                <input type="text" id="regUser" placeholder="Логін *" required>
+                <input type="email" id="regEmail" placeholder="Email">
+                <input type="password" id="regPass" placeholder="Пароль (мін. 6 символів) *" required>
+                <input type="password" id="regPass2" placeholder="Повторіть пароль *" required>
+                <p id="regError" class="error-msg"></p>
+                <button type="button" class="btn" style="width: 100%;" onclick="register()">Зареєструватись</button>
+            </form>
+        </div>
+    </div>
+
+    <main class="container">
+        
+        <section id="adminPanel" style="display: none; background: #ffe0b2; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+            <h2 style="margin-top:0; color: #e65100;">🛠 Панель Адміністратора (CRUD)</h2>
+            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                <input type="text" id="newTitle" placeholder="Назва курсу" style="padding: 10px; flex: 1;">
+                <input type="number" id="newPrice" placeholder="Ціна" style="padding: 10px; width: 100px;">
+                <select id="newType" style="padding: 10px;">
+                    <option value="course">Курс</option>
+                    <option value="book">Книга</option>
+                </select>
+                <button class="btn" style="background: #e65100;" onclick="createProduct()">+ Додати товар</button>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <h2>Товари (Завантажені з JSON)</h2>
+            <div id="productsContainer" class="cards-grid"></div>
+        </section>
+
+        <section id="statsSection" style="margin-top: 40px; background: #fff; padding: 20px; border-radius: 8px;">
+            <h2 style="text-align: center;">Популярність пропозицій</h2>
+            <div style="max-width: 600px; margin: 0 auto;"><canvas id="myChart"></canvas></div>
+        </section>
+    </main>
+
+    <script src="js/asynch.js"></script>
+</body>
+</html>
