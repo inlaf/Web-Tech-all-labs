@@ -27,8 +27,6 @@ async function fetchProducts() {
     }
 }
 
-fetchProducts(); 
-updateUI();
 
 const authModal = document.getElementById('authModal');
 const authBtn = document.getElementById('authBtn');
@@ -264,3 +262,6 @@ function buildChart(type, dataArray = productsData) {
         }
     });
 }
+
+fetchProducts(); 
+updateUI();
